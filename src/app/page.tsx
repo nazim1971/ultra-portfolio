@@ -1,4 +1,4 @@
-'use client'
+
 import AboutMe from '@/components/home/AboutMe';
 import Find from '@/components/home/FindMe';
 import Hero from '@/components/home/Hero';
