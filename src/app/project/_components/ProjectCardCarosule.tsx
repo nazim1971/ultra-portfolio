@@ -29,7 +29,7 @@ const ProjectCardCarousel = ({ project }: { project: TProject }) => {
       <CarouselContent>
         {project.images?.map((img, idx) => (
           <CarouselItem key={idx}>
-            <div className="relative w-full h-[200px] sm:h-[250px] md:h-[300px]">
+            <div className="relative  w-full h-[200px] sm:h-[250px] md:h-[350px]">
               <Image
                 src={img}
                 alt={`${project.title} - Image ${idx + 1}`}
