@@ -39,8 +39,11 @@ const Footer = () => {
             Contact Me Now <MoveUpRightIcon />
           </ShinyButton>
         </Link>
+
+          {/* Divider */}
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-TPrimary to-transparent my-8" />
           </motion.div>
-          <div className="flex flex-col md:flex-row justify-between items-center px-4 pt-4 md:px-8 lg:px-10 mt-8  border-t-[1px] border-TPrimary">
+          <div className="flex flex-col md:flex-row justify-between items-center px-4 pt-4 md:px-8 lg:px-10 ">
             <p className="text-sm text-gray-700 dark:text-gray-400">&copy; {currentYear} Md. Nazim Uddin. All rights reserved.</p>
             <div className="flex gap-4 md:gap-6 justify-center items-center mt-5 md:mt-0 mb-5 md:mb-0 text-lg md:text-2xl">
               <Link

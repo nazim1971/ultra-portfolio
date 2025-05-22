@@ -3,28 +3,24 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ModeToggle } from "../theme/ModeToggle";
-import { FiHome, FiMenu } from "react-icons/fi"; // Import home and menu icon
+import { FiHome, FiMenu } from "react-icons/fi";
 import Sidebar from "./Sidebar";
 
-
-
 const Navbar = () => {
-  const [showNavbar, setShowNavbar] = useState(true); // Initially visible
+  const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Sidebar state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       if (currentScrollY > lastScrollY) {
-        setShowNavbar(false); // Hide navbar on scroll down
+        setShowNavbar(false);
       } else {
-        setShowNavbar(true); // Show navbar on scroll up
+        setShowNavbar(true);
       }
-
       setLastScrollY(currentScrollY);
     };
 
@@ -34,12 +30,11 @@ const Navbar = () => {
 
   return (
     <div>
-      {/* Sidebar Component */}
-      <Sidebar  isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
+      <Sidebar isOpen={isSidebarOpen} closeSidebar={() => setIsSidebarOpen(false)} />
 
-      {/* Navbar Container */}
+      {/* Navbar Container - Added overflow-hidden to prevent layout shift */}
       <div
-        className={`fixed w-full top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
+        className={`fixed w-full top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out overflow-hidden ${
           showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -51,14 +46,17 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Right side: Hamburger Menu (visible on mobile) */}
+          {/* Right side: Hamburger Menu */}
           <div className="flex items-center lg:hidden">
-            <button onClick={toggleSidebar} className="text-2xl text-gray-500 dark:text-teal-400 hover:text-teal-700 transition">
+            <button 
+              onClick={toggleSidebar} 
+              className="text-2xl text-gray-500 dark:text-teal-400 hover:text-teal-700 transition"
+            >
               <FiMenu />
             </button>
           </div>
 
-          {/* Right side: Links (hidden on mobile) */}
+          {/* Right side: Links */}
           <div className="hidden lg:flex items-center gap-5">
             <Link href="/project" className="hover:text-teal-500 transition text-gray-500 dark:text-gray-400">
               Projects
@@ -73,8 +71,10 @@ const Navbar = () => {
               Blog
             </Link>
 
-            {/* Dark/Light Mode Toggle */}
-            <ModeToggle />
+            {/* ModeToggle with position relative */}
+            <div className="relative">
+              <ModeToggle />
+            </div>
           </div>
         </div>
       </div>

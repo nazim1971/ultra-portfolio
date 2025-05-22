@@ -5,58 +5,85 @@ import { ShinyButton } from "../magicui/shiny-button";
 
 const Hero = () => {
   const words = [
-    { text: "I am a software developer" },
-    { text: "I am a front-end developer" },
+    { text: "Enterprise-level experience" },
+    {
+      text: "Performance optimization",
+      className: "text-blue-500 dark:text-blue-300",
+    },
+    { text: "Responsive design" },
+    {
+      text: "Modern frameworks",
+      className: "text-purple-500 dark:text-purple-300",
+    },
   ];
 
   return (
-    <div className="mt-20 my-10  md:my-20 px-4">
-      <CardContainer className="inter-var">
-        <CardBody className="bg-gray-100 relative group/card transition-transform duration-300 ease-in-out transform hover:scale-105 dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gray-900 dark:border-gray-700 border-gray-200 w-full sm:w-[30rem] h-auto rounded-xl p-6 border">
+    <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20 md:py-0">
+      {/* 3D Profile Card with enhanced styling */}
+      <CardContainer className="inter-var mb-8">
+        <CardBody className="bg-gray-50 dark:bg-gray-900 relative group/card transition-all duration-500 ease-in-out transform hover:scale-[1.02] dark:border-gray-700 border-gray-200 w-full sm:w-[30rem] h-auto rounded-2xl p-6 border">
           <CardItem
             translateZ="100"
-            className="mx-auto mt-4 h-[200px] w-[200px] sm:h-[250px] sm:w-[250px]"
+            className="mx-auto h-[200px] w-[200px] sm:h-[250px] sm:w-[250px] relative"
           >
+            {/* Glow effect */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 opacity-10 blur-md group-hover/card:opacity-20 transition-opacity duration-300" />
             <Image
               height={250}
               width={250}
-              className="rounded-full border object-cover transition-shadow duration-300 ease-in-out hover:shadow-xl dark:hover:shadow-emerald-500/[0.2]"
-              alt="Nazim image"
-              src={
-                "https://res.cloudinary.com/dfvgxf4dc/image/upload/v1738593414/q2kogki4snnc6yicjtyl.png"
-              }
+              className="rounded-full border-4 border-white dark:border-gray-800 object-cover shadow-lg hover:shadow-xl transition-shadow duration-300"
+              alt="Nazim Uddin - Web Developer"
+              src="https://res.cloudinary.com/dfvgxf4dc/image/upload/v1738593414/q2kogki4snnc6yicjtyl.png"
+              priority
             />
           </CardItem>
         </CardBody>
       </CardContainer>
 
-      <h2 className="bg-clip-text text-transparent text-center bg-gradient-to-b from-neutral-900 to-neutral-700 dark:from-neutral-600 dark:to-white text-2xl lg:text-3xl  font-sans py-2 md:py-5 relative z-20 font-bold tracking-tight">
-        I am Md. Nazim Uddin
-      </h2>
+      {/* Name with gradient text */}
+      <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-teal-500 dark:from-blue-400 dark:to-teal-300">
+        Md. Nazim Uddin
+      </h1>
 
-      <div className="flex flex-col items-center justify-center my-5 space-y-4 ">
-      <div className="text-center my-8">
-      <a
-            href="https://drive.usercontent.google.com/u/0/uc?id=1DrNuSNodw7TRKbKq9AY_OKnqs3mlqwrE&export=download"
-            download="Software_developer_resume_of_Md_Nazim_Uddin.pdf" 
-            aria-label="Download Md. Nazim Uddin's Resume"
-          >
-            <ShinyButton className="rounded-full">
-              Download <span className="text-TPrimary">Resume</span>
-            </ShinyButton>
-          </a>
-        </div>
+      {/* Typewriter effect with improved words */}
+      <TypewriterEffectSmooth
+        words={words}
+        className="mb-8 text-lg md:text-xl"
+      />
 
-        <TypewriterEffectSmooth words={words} />
-      </div>
-
-      <p className="max-w-xl mx-auto text-center text-sm md:text-lg text-neutral-700 dark:text-neutral-400 px-4">
-        As a Web Developer specializing in scalable, responsive applications
-        with a focus on performance and modular architecture. With experience on
-        enterprise-level projects like{" "}
-        <span className="text-TPrimary">Amazon</span>, I optimize both front-end
-        and back-end systems for seamless user experiences.
+      {/* Professional tagline */}
+      <p className="max-w-xl mx-auto text-center text-base md:text-lg text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+        Web Developer specializing in{" "}
+        <span className="font-semibold text-blue-600 dark:text-blue-400">
+          scalable applications
+        </span>{" "}
+        with enterprise experience at{" "}
+        <span className="font-semibold text-amber-600 dark:text-amber-400">
+          Amazon
+        </span>
+        . Passionate about{" "}
+        <span className="font-semibold text-teal-600 dark:text-teal-400">
+          performance
+        </span>{" "}
+        and{" "}
+        <span className="font-semibold text-purple-600 dark:text-purple-400">
+          user experience
+        </span>
+        .
       </p>
+
+      {/* Enhanced Download Button */}
+      <div className="mb-12">
+        <a
+          href="https://drive.usercontent.google.com/u/0/uc?id=1DrNuSNodw7TRKbKq9AY_OKnqs3mlqwrE&export=download"
+          download="Software_developer_resume_of_Md_Nazim_Uddin.pdf"
+          aria-label="Download Resume"
+        >
+          <ShinyButton className="rounded-full px-6 py-3 text-lg font-medium hover:shadow-lg hover:shadow-blue-500/20 transition-all">
+            Download Resume
+          </ShinyButton>
+        </a>
+      </div>
     </div>
   );
 };
