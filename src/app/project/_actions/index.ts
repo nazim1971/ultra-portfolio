@@ -1,5 +1,3 @@
-
-
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const getAllProjects = async (
   page?: string,
@@ -21,10 +19,10 @@ export const getAllProjects = async (
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/project?${params.toString()}`,
-      {
+       {
         method: "GET",
         next: {
-          tags: ['PROJECT'],
+          revalidate: 10, // ✅ Revalidate every 10 seconds
         },
       }
     );
@@ -41,14 +39,11 @@ export const getAllProjects = async (
 export const getSingleProjectDetails = async (id: string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      next: {
-        tags: ['PROJECT'],
-      },
-    });
+        method: "GET",
+        next: {
+          revalidate: 10, // ✅ Revalidate every 10 seconds
+        },
+      });
 
     const result = await res.json();
     return result;
