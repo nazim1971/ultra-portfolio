@@ -15,6 +15,11 @@ export const getAllProjects = async (
       params.append('searchTerm', query.searchTerm.toString());
     }
 
+if (!query?.sortBy) {
+  params.append('sort', 'createdAt'); // not sortBy/sortOrder — use `sort`
+}
+
+
     // Add any other query params similarly...
 
     const res = await fetch(
