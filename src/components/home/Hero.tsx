@@ -5,17 +5,20 @@ import { ShinyButton } from "../magicui/shiny-button";
 
 const Hero = () => {
   const words = [
-    { text: "Enterprise-level experience" },
-    {
-      text: "Performance optimization",
-      className: "text-blue-500 dark:text-blue-300",
-    },
-    { text: "Responsive design" },
-    {
-      text: "Modern frameworks",
-      className: "text-purple-500 dark:text-purple-300",
-    },
-  ];
+  { text: "I'm a Frontend Developer" },
+  {
+    text: "Full-Stack experience",
+    className: "text-blue-500 dark:text-blue-300",
+  },
+  { text: "Building scalable UIs" },
+  {
+    text: "Modern technologies",
+    className: "text-purple-500 dark:text-purple-300",
+  },
+  { text: "Performance-driven development" },
+  { text: "Clean and maintainable code" },
+]
+
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4 py-20 md:py-0">
@@ -57,10 +60,7 @@ const Hero = () => {
         <span className="font-semibold text-blue-600 dark:text-blue-400">
           scalable applications
         </span>{" "}
-        with enterprise experience at{" "}
-        <span className="font-semibold text-amber-600 dark:text-amber-400">
-          Amazon
-        </span>
+        with enterprise experience 
         . Passionate about{" "}
         <span className="font-semibold text-teal-600 dark:text-teal-400">
           performance
