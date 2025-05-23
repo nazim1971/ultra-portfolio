@@ -74,7 +74,7 @@ const AboutMe: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm"
+            className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl shadow-sm overflow-hidden"
           >
             <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
               My <span className="text-[#CBACF9]">Toolkit</span>
